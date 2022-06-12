@@ -18,18 +18,7 @@
 -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Bots - OpenBotList Preview</title>
-    <link rel="icon" href="/static/logos/obl-alt.svg" />
-    <!-- open graph tags -->
-    <meta property="og:title" content="OpenBotList" />
-    <meta property="twitter:description"  content="See the Bots that are currently being listed on OBL" />
-    <meta content="https://cdn.glitch.com/20fa5251-77f5-4a4c-b8a3-330e4a4369ef/obl-banner-png" property="og:image"/>
-    <meta content="summary_large_image" name="twitter:card" />
-    <!-- css -->
-    <script src="https://cdn.tailwindcss.com/"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Sigmar+One&display=swap&family=Roboto:wght@500&display=swap" rel=stylesheet>
-  </head>
+  <%-includes("./head.ejs", {title: "Bots - OpenBotList Preview", description: "See the Bots that are currently being listed on OBL"})
   
   <body class="bg-gradient-to-r from-violet-300 to-violet-400">
       <nav class="bg-normal-100 px-2 sm:px-4 py-2.5 rounded">
