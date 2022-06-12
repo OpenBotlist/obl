@@ -4,7 +4,7 @@ this is the source code of the preview version of obl! this is still in dev btw
 
 # Dirs
 
-/src - the source code of aria
+/src - the source code of aria <br>
 /website - the website obv lol
 
 # contrubite pls
