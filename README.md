@@ -7,7 +7,7 @@ this is the source code of the preview version of obl! this is still in dev btw
 /src - the source code of aria <br>
 /website - the website obv lol
 
-# contrubite pls
+# contribute pls
 lol
 
 # TODO
