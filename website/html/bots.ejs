@@ -57,25 +57,19 @@
         </div>
       </nav>
 
-    <div
-    class="container max-w-lg px-4 py-32 mx-auto mt-12 text-left md:max-w-none md:text-center"
-  >
-    <h1
-      class="text-5xl font-extrabold leading-10 tracking-tight text-left text-gray-900 md:text-center sm:leading-none md:text-6xl lg:text-7xl"
-    >
+    <div class="container max-w-lg px-4 py-32 mx-auto mt-12 text-left md:max-w-none md:text-center">
+    <h1 class="text-5xl font-extrabold leading-10 tracking-tight text-left text-gray-900 md:text-center sm:leading-none md:text-6xl lg:text-7xl">
       <span class="inline md:block text-white" style="font-family:Inter,sans-serif">OpenBotList</span>
     </h1>
     <div class="mt-4 text-2xl font-bold text-white">
-      <p> Discover some bots lol </p>
-      </div>
+      <p>Discover some bots lol</p>
+    </div>
 
     <section class="mx-12 mt-8 grid grid-cols-4 gap-4 bg-gradient-to-r from-violet-300 to-violet-400 rounded-lg">
       <% currentBots.filter(x => x.approved == true).forEach(function(bot) { %>
       <div class="mb-8 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md mt-6 mx-6">
         <div class="flex justify-end px-4 pt-4">
-            <button style="display: none;" class="hidden sm:inline-block text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg text-sm p-1.5" type="button">
-                 
-            </button>
+            <button style="display: none;" class="hidden sm:inline-block text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg text-sm p-1.5" type="button"></button>
         </div>
         <div class="flex flex-col items-center pb-10">
             <img class="mb-3 w-24 h-24 rounded-full shadow-lg" src="https://www.memecreator.org/static/images/memes/5331753.jpg" alt="the best placeholder ever"/>
@@ -91,7 +85,5 @@
 
   
     </section>
-
     </body>
-    
-    </html>
+</html>
