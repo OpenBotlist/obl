@@ -17,87 +17,48 @@
     along with this program. If not, see https://www.gnu.org/licenses/.
 */
 
-const { Client, Collection } = require('discord.js');
-const { writeFileSync, readFileSync } = require('node:fs');
-const dbpath = './src/database.json';
-const { loadCommands, loadEvents } = require('./util/loaders');
+import { Client, Collection } from 'discord.js';
+import { loadCommands, loadEvents } from './util/loaders.js';
+import database from '../database.js';
 
-const client = new Client({ disableEveryone: true, intents: 98303 }); // is 98303 enougth? -no
+const client = new Client({ intents: 98303 });
 
-let DB = {};
+client.db = database;
 
-class db {
-  static load() {
-    DB = JSON.parse(readFileSync(dbpath).toString());
-  }
-  static save() {
-    writeFileSync(dbpath, JSON.stringify(DB));
-  }
-  static get(id) {
-    if (!DB[id]) return null;
-    return JSON.parse(JSON.stringify(DB[id])); // string -> parse :: deep copy
-  }
-  static set(id, val) {
-    DB[id] = val;
-    db.save();
-  }
-  static add(id, val) {
-    if (!DB[id]) DB[id] = 0;
-    DB[id] = Number(DB[id]) + val;
-    db.save();
-  }
-  static async fetch(id) {
-    return db.get(id);
-  }
-  static has(id) {
-    return Boolean(DB[id]);
-  }
-  static delete(id) {
-    return delete DB[id];
-  }
-  static push(id, value) { 
-    let getFirst = db.get(id)
-    getFirst.push(value)
-    db.set(id, getFirst)
-  }
-}
-
-db.load();
-
-client.botoptions = {
+client.botOptions = {
   prefix: '!',
   token: process.env.token, // token reaveal
   logs: {
     modlogs: '966028505458556968'
   },
   team: ['396571938081865741', '544676649510371328', '985611236752371762'],
-  bottumrev: ['928624781731983380','396571938081865741', '985611236752371762'],
-  ashley: ['396571938081865741', '985611236752371762'], // HE HE HE HA *clash royale sfx*
+  bottumrev: ['928624781731983380', '396571938081865741', '985611236752371762'],
+  ashley: ['396571938081865741'], // HE HE HE HA *clash royale sfx*
   add_bot: '966397896176058428'
 };
 
-client.db = db;
+// ok - lets switch the commands
 
 client.usages = {
   prefix: {
-    max: 10,
+    max: 10
   },
   botId: {
-    type: "user",
-    bot: true,
+    type: 'user',
+    bot: true
   },
   shortDesc: {
     max: 150,
-    rest: true,
+    rest: true
   },
   declineReason: {
-    rest: true,
+    rest: true
   }
-}
- 
+};
 
 client.commands = new Collection();
-loadCommands(client);
-loadEvents(client);
 
-client.login(client.botoptions.token);
+await loadCommands(client);
+await loadEvents(client);
+
+await client.login(client.botOptions.token);

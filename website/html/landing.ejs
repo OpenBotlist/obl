@@ -18,19 +18,67 @@
 -->
 <!DOCTYPE html>
 <html lang="en">
-  <%-include("./head.ejs", {title: "", description: ""})%>
+  <head>
+    <title>Welcome to OBL!</title>
+    <link rel="icon" href="/static/logos/obl-alt.svg"/>
+    <!-- open graph tags -->
+    <meta property="og:title" content="OpenBotList" />
+    <meta property="twitter:description" content="Its time to ditch Top.gg! OpenBotList is an open source botlist for Discord, Revolt, Telegram and Guilded. We also have sex" />   
+    <meta content="https://cdn.glitch.com/20fa5251-77f5-4a4c-b8a3-330e4a4369ef/obl-banner-png" property="og:image">
+    <meta content="summary_large_image" name="twitter:card">
+    <!-- css -->       
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.15.3/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- JS -->
+    <script src="/static/improve/atb.js"></script>
+    <script src="/static/js/main.js"></script>
   
-  <body style="overflow-y: hidden;" class="bg-gradient-to-r from-violet-300 to-violet-400">
-    <%-include("./nav.ejs", {})%>
-     <!-- div center -->
-    <div class="flex justify-center items-center h-screen" style="pointer-events: none;">
-    <h1 class="font-bold text-5xl text-white">  
-Your personal data is not Top.gg's business
-      </h1>
-      <p class="font-bold text-white">
-         For everyone who’s had enough of Topgg tracking, OpenBotList lets you take back your privacy NOW!
-       </p>
-      <br />
+  </head>
+  
+  
+      <div class="mx-8">
+    <%- include("./components/Nav.ejs") %>
+  </div>
+
+  <body>
+    
+    <div class="grid place-items-center mt-16 mb-36 ">
+      <h1 class="font-bold text-7xl">OpenBotList</h1><br /><br />
+      <p>Open source botlist for Discord, Revolt, Telegram and Guilded.</p>
+       <span class="indicator-item badge badge-primary">BETA</span>
+      <input id="search" type="text" placeholder="Search some bots lol" class=" mt-4 input input-bordered w-full max-w-4xl" />
+<hr>
     </div>
+      <% currentBots.filter(x => x.approved).forEach(function(bot) { %> <div class="bot mb-8">
+       <div class="mr-96 ml-4">
+      <div class="alert shadow-lg">
+        <div>
+          <div class="indicator">  
+          <img
+            src="<%= bot.avatarURL %>"
+            class="w-16 h-16 mask mask-squircle"
+            alt="_av"
+          />  
+         
+          </div>             
+          <div>
+            <h3 class="font-bold"><%= bot.name %></h3>
+              <div class="text-xs"><%= bot.shortDesc %></div>
+          </div>
+        </div>
+        <div class="flex-none">
+          <label class="btn btn-primary">
+            Add to Discord
+          </label>
+        </div>
+      </div>
+             </div>
+
+</div>
+                <% }); %>  
+                       <script>$("#search").keyup(function(){  var value = $(this).val().toLowerCase();  $(".bot").filter(function() { $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)}); });</script>
   </body>
+        
+
+     
 </html>

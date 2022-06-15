@@ -1,5 +1,3 @@
-/*
-OBL.JS - the starter for obl
-*/
-require('./src/server.js'); // aria
-require('./website/load.js'); // website
+await import('./database.js');
+await import('./website/load.js');
+await import('./src/server.js');
