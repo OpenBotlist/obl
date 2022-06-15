@@ -6,7 +6,7 @@
  https://github.com/OpenBotlist/obl/tree/master/website/public/logos
 # About OBL
 
-Obl is a free,libre and open source botlist for Discord, Revolt, Telegram and Guilded. 
+Obl is a free,libre and open source botlist for Discord, Revolt, Telegram and Guilded that has free bananas ( Revolt, Telegram and Guilded support is wip lol)
     </div>
 
 # Dirs
