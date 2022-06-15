@@ -1,4 +1,12 @@
+   <div align="center">
+
+ <img height="200" src="https://openbotlist.glitch.me/static/logos/obltext.svg"/>
+ 
+ 
+# LOGOS
+
 Our logos are lisanced in wtfpl 2.0;
+</div>
        
        DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
                     Version 2, December 2004 
