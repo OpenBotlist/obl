@@ -3,7 +3,7 @@
 <img height="200" src="https://openbotlist.glitch.me/static/logos/obl.svg"/>
 <img height="200" src="https://openbotlist.glitch.me/static/logos/obltext.svg"/>
 
- 
+ https://github.com/OpenBotlist/obl/tree/master/website/public/logos
 # About OBL
 
 Obl is a free,libre and open source botlist for Discord, Revolt, Telegram and Guilded. 
@@ -13,6 +13,9 @@ Obl is a free,libre and open source botlist for Discord, Revolt, Telegram and Gu
 
 /src - the source code of aria <br>
 /website - the website of obl
+
+# Cool logos n stuff
+omg <a href="https://github.com/OpenBotlist/obl/tree/master/website/public/logos">OBL logos?!!?</a>😳
 
 # Contributing
 Please contribute lol
