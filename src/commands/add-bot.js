@@ -8,8 +8,12 @@ export default {
     // ReferenceError: id is not defined
     console.log("add bot args", args);
      
-     const bots = client.db.collection('bots');
-
+    const bots = client.db.collection('bots');
+    if (!args[0] || !args[1] || !args[2] || bot.user.bot) {
+      await message.reply({ content: "dub tbh" })
+      
+      return;
+    }
     const entry = await bots.findOne({ id: bot.id });
 
     if (entry?.approved) {
