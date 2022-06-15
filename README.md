@@ -2,9 +2,8 @@
 
 <img height="200" src="https://openbotlist.glitch.me/static/logos/obl.svg"/>
 <img height="200" src="https://openbotlist.glitch.me/static/logos/obltext.svg"/>
-
- https://github.com/OpenBotlist/obl/tree/master/website/public/logos
-# About OBL
+   
+ # OBL (aka OpenBotList)
 
 Obl is a free,libre and open source botlist for Discord, Revolt, Telegram and Guilded that has free bananas ( Revolt, Telegram and Guilded support is wip lol)
     </div>
