@@ -1,3 +1,12 @@
+/* ------------------------------------------------- */
+/*
+ * Google fonts - Inter, Sigmar one And Roboto 
+ * Tailwind 2
+ * Boostrap 5
+*/
+@import url('');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css');
+/* ------------------------------------------------- */
 
 /*--------------------------------------------------- 
 This file is released to the public domain.
@@ -86,7 +95,7 @@ body {
 }
 img {
   pointer-events: none;
-  height:200;
+  height: 200;
 }
 h1,
 h2,
@@ -106,26 +115,26 @@ p {
   color: #ffffff;
 }
 hr {
-  color:gray;
+  color: gray;
 }
 /*
 Discover bots
 */
 
- #discoverPage {
+#discoverPage {
   width: 100%;
   height: 90%;
   overflow: scroll;
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
- }
-
- #discoverPage::-webkit-scrollbar {
-    display: none;
 }
 
- #discoverPage > div {
+#discoverPage::-webkit-scrollbar {
+  display: none;
+}
+
+#discoverPage > div {
   max-width: 15rem;
   max-height: 20rem;
   background-color: #171616;
@@ -133,50 +142,49 @@ Discover bots
   display: flex;
   flex-direction: column;
   justify-content: space-between;
- }
+}
 
- #discoverPage > div > div > div > h3 {
+#discoverPage > div > div > div > h3 {
   margin: 0;
   padding: 0;
   color: #d3c6c6;
- }
+}
 
- #discoverPage > div > div >  p {
+#discoverPage > div > div > p {
   color: #cfc7c7;
   margin-bottom: 0;
   margin-left: 0;
   margin-right: 0;
   margin-top: 10px;
   padding: 0;
- }
+}
 
- #discoverPage > div > div:nth-child(1) {
+#discoverPage > div > div:nth-child(1) {
   margin-left: 1rem;
   margin-top: 1rem;
- }
+}
 
-
- #main {
+#main {
   display: flex;
   align-items: center;
   gap: 1rem;
- }
+}
 
- #main > img {
+#main > img {
   border-radius: 6px;
   height: 50px;
   width: 50px;
- }
+}
 
- #buttons {
+#buttons {
   display: flex;
   position: relative;
   width: 100%;
   justify-content: space-evenly;
   margin-bottom: 2rem;
- }
+}
 
- #buttons > button {
+#buttons > button {
   border-radius: 4px;
   background-color: hsl(199, 99%, 69%);
   color: black;
@@ -195,14 +203,14 @@ Discover bots
   align-items: center;
   box-sizing: border-box;
   user-select: none;
- }
+}
 
- #buttons > button:hover {
+#buttons > button:hover {
   background-color: hsl(199, 99%, 69%, 90%);
- }
+}
 
- #buttons > button:active {
+#buttons > button:active {
   background-color: hsl(199, 99%, 69%, 80%);
   border-color: transparent;
-  color: hsla(0, 0%, 0%, .5);
- }
+  color: hsla(0, 0%, 0%, 0.5);
+}

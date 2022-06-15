@@ -1,9 +1,8 @@
-const {
-  Formatters: { hyperlink },
-  MessageEmbed
-} = require('discord.js');
+import { Formatters, MessageEmbed } from 'discord.js';
 
-module.exports = {
+const { hyperlink } = Formatters;
+
+export default {
   name: 'queue',
   isBottumReviewerOnly: true,
   async execute(client, message) {
