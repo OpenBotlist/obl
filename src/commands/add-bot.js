@@ -10,7 +10,7 @@ export default {
      
      const bots = client.db.collection('bots');
 
-    const entry = await bots.findOne({ id: bot.id });
+    const entry = await bots.findOne({ id: bot });
 
     if (entry?.approved) {
       await message.reply({ content: 'That bot is already approved.' });
