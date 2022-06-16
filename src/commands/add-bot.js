@@ -5,10 +5,8 @@ export default {
   usage: ['botId', 'prefix', 'shortDesc'],
   async execute(client, message, args) { 
     const [bot, prefix, shortDesc] = args
-    // ReferenceError: id is not defined
-    console.log("add bot args", args);
-     
-     const bots = client.db.collection('bots');
+      
+   const bots = client.db.collection('bots');
 
     const entry = await bots.findOne({ id: bot.id });
 
@@ -27,7 +25,7 @@ export default {
     await bots.insertOne({
       name: bot.username,
       avatarURL: bot.displayAvatarURL({ format: 'png' }),
-      id,
+      bot.id, // https://github.com/OpenBotlist/obl/issues/10
       prefix,
       shortDesc,
       approved: false,
