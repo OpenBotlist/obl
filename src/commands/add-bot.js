@@ -21,16 +21,19 @@ export default {
 
       return;
     }
-
+    
+    const botid = bot.id
+    
     await bots.insertOne({
       name: bot.username,
       avatarURL: bot.displayAvatarURL({ format: 'png' }),
-      bot.id, // https://github.com/OpenBotlist/obl/issues/10
+      botid,
       prefix,
       shortDesc,
       approved: false,
       ownerID: message.author.id
     });
+
 
     await message.author
       .send('Your bot has been added to the queue!')
