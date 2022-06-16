@@ -1,0 +1,25 @@
+   <div align="center">
+
+ <img height="200" src="https://openbotlist.glitch.me/static/logos/obltext.svg"/>
+ 
+ 
+# LOGOS
+
+Our logos are lisanced in wtfpl 2.0;
+</div>
+       
+       DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
+                    Version 2, December 2004 
+
+      Copyright (C) 2004 Sam Hocevar <sam@hocevar.net> 
+
+     Everyone is permitted to copy and distribute verbatim or modified 
+     copies of this license document, and changing it is allowed as long 
+     as the name is changed. 
+
+      DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
+      TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION 
+
+      0. You just DO WHAT THE FUCK YOU WANT TO.
+      
+  note:obl is still gpl ! not the logos lol
