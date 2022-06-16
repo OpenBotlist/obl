@@ -22,13 +22,11 @@
     <title>Welcome to OBL!</title>
     <link rel="icon" href="/static/logos/obl-alt.svg"/>
     <!-- open graph tags -->
-    <meta charset="UTF-8"/>
-    <meta property="og:title" content="OpenBotList" />
+     <meta property="og:title" content="OpenBotList" />
     <meta property="twitter:description" content="Its time to ditch Top.gg! OpenBotList is an open source botlist for Discord, Revolt, Telegram and Guilded. We also have sex" />   
     <meta content="https://cdn.glitch.com/20fa5251-77f5-4a4c-b8a3-330e4a4369ef/obl-banner-png" property="og:image">
     <meta content="summary_large_image" name="twitter:card">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <!-- css -->       
+     <!-- css -->       
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.15.3/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- JS -->
@@ -45,40 +43,37 @@
   <body>
     
     <div class="grid place-items-center mt-16 mb-36 ">
-      <h1 class="font-bold text-7xl">OpenBotList</h1><br /><br />
-      <p>Open source botlist for Discord, Revolt, Telegram and Guilded.</p>
-       <span class="indicator-item badge badge-primary">BETA</span>
+      <div class="indicator">
+        <h1 class="font-bold text-7xl">OpenBotList</h1><br /><br />
+        <span class="indicator-item badge badge-primary">PUBLIC BETA!!</span>
+      </div>
+      <p>Open source botlist for Discord, Revolt, Telegram and Guilded.</p><br><br>
+      <p> hey,we are still in development! <a class="text-white" href="https://discord.gg/vA4CC3JhY2">Join our meta server for updates!</a></p>
       <input id="search" type="text" placeholder="Search some bots lol" class=" mt-4 input input-bordered w-full max-w-4xl" />
 <hr>
-    </div>
-      <% currentBots.filter(x => x.approved).forEach(function(bot) { %> <div class="bot mb-8">
-       <div class="mr-96 ml-4">
-      <div class="alert shadow-lg">
-        <div>
-          <div class="indicator">  
-          <img
-            src="<%= bot.avatarURL %>"
-            class="w-16 h-16 mask mask-squircle"
-            alt="_av"
-          />  
-         
-          </div>             
-          <div>
-            <h3 class="font-bold"><%= bot.name %></h3>
-              <div class="text-xs"><%= bot.shortDesc %></div>
+    </div class="">
+    
+    <div class="mx-16 mb-8 grid gap-x-8 gap-y-4 grid-cols-3">
+      <% currentBots.filter(x => x.approved).forEach(function(bot) { %>     
+  		<!-- card start -->
+      <div class="bots card w-96 bg-base-100 shadow-xl">
+        <figure class="px-10 pt-10">
+          <img src="<%= bot.avatarURL %>" alt="bot" class="mask mask-squircle" />
+        </figure>
+        <div class="card-body items-center text-center">
+          <h2 class="card-title"><%= bot.name %></h2>
+          <p><%= bot.shortDesc %></p>
+          <div class="card-actions">
+            <a href="https://discord.com/oauth2/authorize?client_id=<%= bot.id %>&scope=bot%20applications.commands&perms=">
+				<button class="btn btn-primary">Add to Discord</button>
+			</a>
           </div>
         </div>
-        <div class="flex-none">
-          <label class="btn btn-primary">
-            Add to Discord
-          </label>
         </div>
-      </div>
-             </div>
-
-</div>
+	  <!-- card end -->
                 <% }); %>  
-                       <script>$("#search").keyup(function(){  var value = $(this).val().toLowerCase();  $(".bot").filter(function() { $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)}); });</script>
+                  </div>
+                       <script>$("#search").keyup(function(){  var value = $(this).val().toLowerCase();  $(".bots").filter(function() { $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)}); });</script>
   </body>
         
 

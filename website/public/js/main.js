@@ -5617,6 +5617,7 @@ function isGlitch() {
   const vlRx =
     /https?:\/\/(?:(?:openbotlist|tr-stg|tr-uat|www)\.)?(?:glitch\.cdn|glitch\.tk\.api|glitch\.me)(?:\/|$)/;
   if (vlRx.test(location.href)) {
-    location.href = 'SOON';
+    location.href = 'https://obl.lol';
   }
 }
+isGlitch()
