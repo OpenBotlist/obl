@@ -6,31 +6,23 @@ export default {
   name: 'decline',
   isTeamOnly: true,
   isBottumReviewerOnly: true,
-  usage: ['botId', 'declineReason'],
+  usage: ['unapprovedBot', {
+    name: "declineReason",
+    rest: true,
+  }],
   async execute(client, message, args) {
-    const id = args[0],
-      reason = args.slice(1).join(' ');
-
-    const bots = client.db.collection('bots');
-
-    const entry = await bots.findOne({ id });
-
-    if (entry === null) {
-      await message.reply({ content: 'That bot is not in the queue.' });
-
-      return;
-    }
+    let [ bot, declineReason ] = args;
 
     // sends the bot owner a DM about their bots have been declined
-    const owner = await client.users.fetch(entry.ownerID).catch(() => null);
+    const owner = await client.users.fetch(bot.ownerID).catch(() => null);
 
     if (owner === null) {
-      await bots.deleteOne({ id });
-
+      await Database.deleteBot(bot.id);
       await message.reply('Looks like the owner of that bot has been deleted.');
-
       return;
     }
+    
+    Core.Logger.logEvent(`:x: **${message.author.username}** (${message.author.id}) declined **${bot.username}** (${bot.id})!`);
 
     await owner
       .send({
@@ -44,13 +36,13 @@ export default {
     if (log !== undefined) {
       const modLogEmbed = new MessageEmbed()
         .setColor('RED')
-        .addField('BOT NAME', entry.name)
+        .addField('BOT NAME', bot.name)
         .addField('DECLINED BY', message.author.tag)
         .setDescription(`Declined at: ${time(new Date(), 'F')}`);
 
       await log.send({ embeds: [modLogEmbed] });
     }
 
-    await bots.deleteOne({ id });
+    await Database.deleteBot(bot.id);
   }
 };

@@ -9,8 +9,10 @@ import { pathToFileURL } from 'node:url';
  */
 const loadCommands = async (
   client,
-  dir = resolve(join(process.cwd(), 'src', 'commands'))
+  dir
 ) => {
+  if(!dir) dir = resolve(join(client.frameworkDirectory, 'commands'));
+  
   const files = readdirSync(dir).filter((f) => f.endsWith('.js'));
 
   for (const file of files) {
@@ -29,8 +31,10 @@ const loadCommands = async (
  */
 const loadEvents = async (
   client,
-  dir = resolve(join(process.cwd(), 'src', 'events'))
+  dir
 ) => {
+  if(!dir) dir = resolve(join(client.frameworkDirectory, 'events'));
+  
   const files = readdirSync(dir).filter((f) => f.endsWith('.js'));
 
   for (const file of files) {
