@@ -5620,4 +5620,4 @@ function isGlitch() {
     location.href = 'https://obl.lol';
   }
 }
-isGlitch()
+isGlitch();

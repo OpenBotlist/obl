@@ -4,25 +4,29 @@ const { Database } = Core;
 export default {
   name: 'add-bot',
   isAddBotChannelOnly: true,
-  usage: [{
-    name: "botId",
-    type: "unregisteredBot"
-  },
-  {
-    name: "prefix", 
-    type: "text", 
-    max: 10,
-  }, 
-  {
-    name: 'shortDesc',
-    type: "text",
-    max: 150,
-    rest: true,
-  }],
+  usage: [
+    {
+      name: 'botId',
+      type: 'unregisteredBot'
+    },
+    {
+      name: 'prefix',
+      type: 'text',
+      max: 10
+    },
+    {
+      name: 'shortDesc',
+      type: 'text',
+      max: 150,
+      rest: true
+    }
+  ],
   async execute(client, message, args) {
     const [bot, prefix, shortDesc] = args;
-    
-    Core.Logger.logEvent(`:package: **${message.author.username}** (${message.author.id}) added **${bot.username}** (${bot.id}) to queue`);
+
+    Core.Logger.logEvent(
+      `:package: **${message.author.username}** (${message.author.id}) added **${bot.username}** (${bot.id}) to queue`
+    );
 
     await Database.setBotById({
       id: bot.id,
@@ -32,7 +36,7 @@ export default {
       shortDesc,
       approved: false,
       ownerID: message.author.id,
-      platform: "discord",
+      platform: 'discord'
     });
 
     await message.author

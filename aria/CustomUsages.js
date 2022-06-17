@@ -1,62 +1,55 @@
+import { Formatters } from 'discord.js';
 import Core from '../core.js';
+
+const { bold } = Formatters;
 
 const CustomUsages = {
   savedBot: {
-    type: "user",
+    type: 'user',
     bot: true,
-    
     async parse(user, opts) {
-      let botData = Core.Database.getBotById(user.id);
-      
-      if (!botData) {
+      const botData = Core.Database.getBotById(user.id);
+
+      if (botData == undefined)
         return {
           fail: true,
-          message: `**${user.username}** isn't a registered bot!`,
+          message: `${bold(user.username)} isn't a registered bot!`
         };
-      };
-      
-      if (opts.approved !== undefined) {
-        if (opts.approved !== botData.approved) return {
+
+      if (opts.approved !== undefined && opts.approved !== botData.approved)
+        return {
           fail: true,
-          message: `**${user.username}** is not an ${opts.approved ? "approved" : "unapproved"} bot!`,
+          message: `${bold(user.username)} is not an ${
+            opts.approved ? 'approved' : 'unapproved'
+          } bot!`
         };
-      };
-      
-      return {
-        parsed: botData,
-      };
-    },
+
+      return { parsed: botData };
+    }
   },
-  
   unregisteredBot: {
-    type: "user",
+    type: 'user',
     bot: true,
-    
-    async parse(user, opts) {
-      let botData = Core.Database.getBotById(user.id);
-      
-      if (botData) {
+    async parse(user) {
+      const botData = Core.Database.getBotById(user.id);
+
+      if (botData != undefined)
         return {
           fail: true,
-          message: `**${user.username}** is already registered!`,
+          message: `${bold(user.username)} is already registered!`
         };
-      };
-      
-      return {
-        parsed: user,
-      };
-    },
+
+      return { parsed: user };
+    }
   },
-  
   approvedBot: {
-    type: "savedBot",
-    approved: true,
+    type: 'savedBot',
+    approved: true
   },
-  
   unapprovedBot: {
-    type: "savedBot",
-    approved: false,
-  },
+    type: 'savedBot',
+    approved: false
+  }
 };
 
 export default CustomUsages;

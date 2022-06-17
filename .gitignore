@@ -1,1 +1,3 @@
 backend/target/*
+package-lock.json
+.glitch-assets

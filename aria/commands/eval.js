@@ -9,10 +9,12 @@ const _8203 = String.fromCharCode(8203);
 export default {
   name: 'eval',
   canOnlyExecutedByAshley: true,
-  usage: [{
-    name: "code",
-    rest: true,
-  }],
+  usage: [
+    {
+      name: 'code',
+      rest: true
+    }
+  ],
   async execute(client, message, args) {
     const [code] = args;
 

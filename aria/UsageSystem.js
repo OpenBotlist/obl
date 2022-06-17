@@ -125,15 +125,15 @@ function ResolveUsage(usage) {
 async function ParseArg(usage, rawarg) {
   usage = ResolveUsage(usage);
 
-  const fnTree = [],
-    opts = {};
+  const fnTree = [];
 
   // Recurse through types
   // This does 2 things:
   // Collect parser functions and populate master usage object (for parser's second argument opts)
   let recurseUsage = usage;
   do {
-    if (debug) console.log('parseArg recurse obj:', recurseUsage, 'master:', usage);
+    if (debug)
+      console.log('parseArg recurse obj:', recurseUsage, 'master:', usage);
     if (recurseUsage.parse) fnTree.push(usage.parse);
     for (const key in recurseUsage)
       if (recurseUsage !== usage && usage[key] === undefined)
@@ -147,31 +147,31 @@ async function ParseArg(usage, rawarg) {
   );
 
   fnTree.reverse();
-  
+
   if (!rawarg) {
     if (usage.optional) {
       return {
-        parsed: usage.default ?? null,
+        parsed: usage.default ?? null
       };
     } else {
       return {
         fail: true,
-        message: `${inlineCode(usage.name)} is required!`,
+        message: `${inlineCode(usage.name)} is required!`
       };
-    };
-  };
+    }
+  }
 
   // Run argument through the parser functions
   // Example: string -> discord user object -> mongodb bot object
   let arg = rawarg,
-      _di = 0;
+    _di = 0;
   for (let fn of fnTree) {
     if (debug) console.log('parseArg fnTree', fnTree);
     if (debug) console.log('parseArg fnTree before', _di, 'arg:', arg);
     let parseOutput = await fn.parse(arg, usage);
     if (debug) console.log('parseArg fnTree after', arg);
     _di++;
-    
+
     if (parseOutput.fail) {
       return parseOutput;
     }
@@ -187,11 +187,10 @@ async function ParseArgs(usages, rawargs) {
   usages = usages.map((usage, i) => {
     if (typeof usage !== 'string') {
       if (!usage.name) usage.name = `arg${i + 1}`;
-    };
+    }
     return usage;
   });
   if (debug) console.log('parseArgs after name safe', usages);
-  
 
   let args = [];
   let fails = [];
@@ -205,13 +204,14 @@ async function ParseArgs(usages, rawargs) {
       args.push(args.slice(_i).join(' '));
       if (!usage.optional && !rawarg) {
         fails.push(`${inlineCode(usage.name)} is required!`);
-      };
+      }
       break;
     }
 
-    if (debug) console.log('parseArgs calling parseArg', _i, usages[_i], rawarg);
+    if (debug)
+      console.log('parseArgs calling parseArg', _i, usages[_i], rawarg);
     let parseOutput = await ParseArg(usage, rawarg);
-    
+
     if (parseOutput.fail) {
       fails.push(parseOutput.message);
       continue;
@@ -256,7 +256,7 @@ function UsagesToString(usages) {
   usages = usages.map((usage, i) => {
     if (typeof usage !== 'string') {
       if (!usage.name) usage.name = `arg${i + 1}`;
-    };
+    }
     return usage;
   });
 

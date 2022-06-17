@@ -34,12 +34,11 @@ async function Init() {
       modlogs: '966028505458556968'
     },
     team: ['396571938081865741', '544676649510371328', '985611236752371762'],
-    bottumrev: "966269411260502026",
+    bottumrev: '966269411260502026',
     ashley: ['396571938081865741'],
     add_bot: '966397896176058428',
-    addBotDelMessages: true, // set to false if debugging
+    addBotDelMessages: true // set to false if debugging
   };
-
 
   client.usages = {
     prefix: {
@@ -57,37 +56,33 @@ async function Init() {
       rest: true
     },
     code: {},
-    
+
     savedBot: {
-      type: "text",
-      
-      async parse(input, settings) {
-        
-      }
+      type: 'text',
+
+      async parse(input, settings) {}
     },
-    
-    approvedBot: {
-      
-    },
-    
+
+    approvedBot: {},
+
     unapprovedBot: {
-      type: "savedBot",
-      
-      approved: false,
+      type: 'savedBot',
+
+      approved: false
     }
   };
 
-  client.frameworkDirectory = join(process.cwd(), "aria");
+  client.frameworkDirectory = join(process.cwd(), 'aria');
   client.commands = new Collection();
   await loadCommands(client);
   await loadEvents(client);
 
   await client.login(client.botOptions.token);
-  
+
   Core.Client = client;
 }
 
 export default {
   Init,
-  client,
-}
+  client
+};

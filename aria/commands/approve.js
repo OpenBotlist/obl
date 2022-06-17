@@ -9,9 +9,9 @@ export default {
   name: 'approve',
   isTeamOnly: true,
   isBottumReviewerOnly: true,
-  usage: "unapprovedBot",
+  usage: 'unapprovedBot',
   async execute(client, message, args) {
-    const [ bot ] = args;
+    const [bot] = args;
 
     // sends the bot owner a DM about their bots have been approved
     const owner = await client.users.fetch(bot.ownerID).catch(() => null);
@@ -25,8 +25,10 @@ export default {
     await owner
       .send({ content: 'WOOO! :tada: YOUR BOT HAS BEEN APPOROVED' })
       .catch(() => undefined);
-    
-    Core.Logger.logEvent(`:tada: **${message.author.username}** (${message.author.id}) approved **${bot.username}** (${bot.id})!`);
+
+    Core.Logger.logEvent(
+      `:tada: **${message.author.username}** (${message.author.id}) approved **${bot.username}** (${bot.id})!`
+    );
 
     // send the log embed to mod logs channel;
     const log = client.channels.cache.get(client.botOptions.logs.modlogs);
