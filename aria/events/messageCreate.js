@@ -9,7 +9,7 @@ export default {
       !message.content.startsWith('!add-bot')
     )
       await message.delete().catch(() => undefined);
-    
+
     if (
       message.author.bot ||
       message.channel.type === 'DM' ||
@@ -59,7 +59,7 @@ export default {
       );
       return;
     }
-    
+
     if (!Array.isArray(command.usage)) command.usage = [];
     try {
       let { fail, fails, args: newargs } = await ParseArgs(command.usage, args);
@@ -79,11 +79,10 @@ export default {
     } catch (error) {
       console.log(error);
       await message.channel.send(
-        `An error occured ...\n\`\`\`xl\n${error.toString()}\n${error.stack}\`\`\``
+        `An error occured ...\n\`\`\`xl\n${error.toString()}\n${
+          error.stack
+        }\`\`\``
       );
     }
   }
 };
-
-
-

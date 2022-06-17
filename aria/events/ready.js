@@ -1,4 +1,4 @@
-import Core from '../../core.js'; 
+import Core from '../../core.js';
 
 export default {
   name: 'ready',
@@ -6,5 +6,5 @@ export default {
   async execute(client) {
     console.log(`${client.user.tag} is online`);
     Core.MasterGuild = await client.guilds.fetch(process.env.MASTER_GUILD_ID);
-  },
+  }
 };

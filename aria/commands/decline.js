@@ -6,12 +6,15 @@ export default {
   name: 'decline',
   isTeamOnly: true,
   isBottumReviewerOnly: true,
-  usage: ['unapprovedBot', {
-    name: "declineReason",
-    rest: true,
-  }],
+  usage: [
+    'unapprovedBot',
+    {
+      name: 'declineReason',
+      rest: true
+    }
+  ],
   async execute(client, message, args) {
-    let [ bot, declineReason ] = args;
+    let [bot, declineReason] = args;
 
     // sends the bot owner a DM about their bots have been declined
     const owner = await client.users.fetch(bot.ownerID).catch(() => null);
@@ -21,12 +24,14 @@ export default {
       await message.reply('Looks like the owner of that bot has been deleted.');
       return;
     }
-    
-    Core.Logger.logEvent(`:x: **${message.author.username}** (${message.author.id}) declined **${bot.username}** (${bot.id})!`);
+
+    Core.Logger.logEvent(
+      `:x: **${message.author.username}** (${message.author.id}) declined **${bot.username}** (${bot.id})!`
+    );
 
     await owner
       .send({
-        content: `Your bot has been declined for the following reason: ${reason}`
+        content: `Your bot has been declined for the following reason: ${declineReason}`
       })
       .catch(() => undefined);
 

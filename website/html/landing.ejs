@@ -28,13 +28,12 @@
     <meta content="summary_large_image" name="twitter:card">
      <!-- css -->       
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.15.3/dist/full.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
     <!-- JS -->
     <script src="/static/improve/atb.js"></script>
     <script src="/static/js/main.js"></script>
-  
+    <script src="/static/js/tailwind.js"></script>
+    <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet"></noscript>   <!-- no script for tailwind -->
   </head>
-  
   
       <div class="mx-8">
     <%- include("./components/Nav.ejs") %>
@@ -47,10 +46,18 @@
         <h1 class="font-bold text-7xl">OpenBotList</h1><br /><br />
         <span class="indicator-item badge badge-primary">PUBLIC BETA!!</span>
       </div>
-      <p>Open source botlist for Discord, Revolt, Telegram and Guilded.</p><br><br>
-      <p> hey,we are still in development! <a class="text-white" href="https://discord.gg/vA4CC3JhY2">Join our meta server for updates!</a></p>
-      <input id="search" type="text" placeholder="Search some bots lol" class=" mt-4 input input-bordered w-full max-w-4xl" />
+        <p>"Cum" -Voltrex 2022</p>
+      
+      <script>
+        document.write('<input id="search" type="text" placeholder="Search some bots lol" class=" mt-4 input input-bordered w-full max-w-4xl" />')
+      </script>
+      <noscript>
+       <p>
+         our search function doesnt work whitout js yet
+        </p>
+      </noscript>
 <hr>
+      
     </div class="">
     
     <div class="mx-16 mb-8 grid gap-x-8 gap-y-4 grid-cols-3">
@@ -73,9 +80,6 @@
 	  <!-- card end -->
                 <% }); %>  
                   </div>
-                       <script>$("#search").keyup(function(){  var value = $(this).val().toLowerCase();  $(".bots").filter(function() { $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)}); });</script>
-  </body>
-        
-
-     
+               <script src="/static/js/search.js"></script>
+        </body>
 </html>
