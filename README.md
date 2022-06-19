@@ -10,7 +10,7 @@ Obl is a free,libre and open source botlist for Discord, Revolt, Telegram and Gu
 
 # Dirs
 
-/src - the source code of aria <br>
+/aria - the source code of aria  
 /website - the website of obl
 
 # Cool logos n stuff
