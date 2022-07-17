@@ -19,13 +19,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8">
     <title>Welcome to OBL!</title>
     <link rel="icon" href="/static/logos/obl-alt.svg"/>
     <!-- open graph tags -->
-     <meta property="og:title" content="OpenBotList" />
+    <meta property="og:title" content="OpenBotList" />
     <meta property="twitter:description" content="Its time to ditch Top.gg! OpenBotList is an open source botlist for Discord, Revolt, Telegram and Guilded. We also have sex" />   
     <meta content="https://cdn.glitch.com/20fa5251-77f5-4a4c-b8a3-330e4a4369ef/obl-banner-png" property="og:image">
     <meta content="summary_large_image" name="twitter:card">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <!-- css -->       
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.15.3/dist/full.css" rel="stylesheet" type="text/css" />
     <!-- JS -->
@@ -60,7 +62,7 @@
       
     </div class="">
     
-    <div class="mx-16 mb-8 grid gap-x-8 gap-y-4 grid-cols-3" style="display:flex; flex-wrap:wrap; justify-content:center;">
+    <div class="mx-16 mb-8 grid gap-x-8 gap-y-4 grid-cols-1 lg:grid-cols-3" style="display:flex; flex-wrap:wrap; justify-content:center;">
       <% currentBots.filter(x => x.approved).forEach(function(bot) { %>     
   		<!-- card start -->
       <div class="bots card w-96 bg-base-100 shadow-xl">
